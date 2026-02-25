@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-primary: #0F172A; /* slate-900 */
+  --color-accent: #10B981; /* emerald-500 */
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-zinc-50 text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-zinc-950 text-slate-100 selection:bg-emerald-900 selection:text-emerald-100;
+  }
+
+  /* Focus states for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-emerald-500 ring-offset-2;
+  }
+}
+
+/* Typography improvements based on UI/UX Pro Max */
+.markdown-body {
+  @apply max-w-[70ch] mx-auto py-12; /* Optimal line length and vertical padding */
+}
+
+.markdown-body h1 { @apply text-5xl font-black tracking-tighter text-slate-900 mt-16 mb-8; }
+.markdown-body h2 { @apply text-3xl font-bold tracking-tight text-slate-800 mt-12 mb-6 border-b border-slate-100 pb-4; }
+.markdown-body h3 { @apply text-2xl font-semibold text-slate-800 mt-10 mb-4; }
+.markdown-body p { @apply mb-8 leading-[1.8] text-slate-700 text-xl font-normal; }
+.markdown-body ul { @apply list-disc pl-8 mb-8 space-y-3 text-slate-700 text-lg; }
+.markdown-body ol { @apply list-decimal pl-8 mb-8 space-y-3 text-slate-700 text-lg; }
+.markdown-body blockquote { @apply border-l-4 border-emerald-500 bg-emerald-50/30 px-8 py-6 italic my-10 rounded-r-2xl text-slate-800 text-xl; }
+.markdown-body code { @apply font-mono text-base bg-zinc-100 px-2 py-0.5 rounded text-emerald-700; }
+.markdown-body hr { @apply my-16 border-slate-100; }
+
+/* Dark Mode Typography */
+.dark .markdown-body h1 { @apply text-slate-50; }
+.dark .markdown-body h2 { @apply text-slate-100 border-slate-800; }
+.dark .markdown-body h3 { @apply text-slate-200; }
+.dark .markdown-body p { @apply text-slate-300; }
+.dark .markdown-body ul { @apply text-slate-300; }
+.dark .markdown-body ol { @apply text-slate-300; }
+.dark .markdown-body blockquote { @apply bg-emerald-950/20 text-slate-200 border-emerald-600; }
+.dark .markdown-body code { @apply bg-zinc-900 text-emerald-400; }
+.dark .markdown-body hr { @apply border-slate-800; }
+
+/* Glassmorphism Utility */
+.glass {
+  @apply bg-white/80 backdrop-blur-xl border-b border-white/20;
+}
+
+.dark .glass {
+  @apply bg-zinc-950/80 border-zinc-800/50;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 rounded-full hover:bg-zinc-400 transition-colors;
+}
+
